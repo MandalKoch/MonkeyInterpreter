@@ -1,6 +1,6 @@
 ﻿namespace MonkeyInterpreter.Lexer;
 
-public record class Token(string TokenType,string Literal)
+public static class TokenType
 {
     public const string ILLEGAL = "ILLEGAL";
     public const string EOF = "EOF";

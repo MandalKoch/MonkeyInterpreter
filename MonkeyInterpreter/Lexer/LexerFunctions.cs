@@ -2,7 +2,6 @@
 
 public partial class Lexer
 {
-   
     private void ReadChar()
     {
         if (m_ReadPosition >= m_Input.Length)
@@ -33,7 +32,7 @@ public partial class Lexer
         {
             return tokenType;
         }
-        return Token.IDENT;
+        return TokenType.IDENT;
     }
     
     private static bool IsLetter(char ch)

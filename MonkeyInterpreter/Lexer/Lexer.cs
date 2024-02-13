@@ -3,14 +3,14 @@
 public partial class Lexer
 {
     private readonly string m_Input;
-    private int m_Position = default;
-    private int m_ReadPosition = default;
+    private int m_Position;
+    private int m_ReadPosition;
     private char m_Ch;
 
     private readonly Dictionary<string, string> m_KeywordsLookUp = new()
     {
-        {"fn",Token.FUNCTION},
-        {"let",Token.LET},
+        {"fn",TokenType.FUNCTION},
+        {"let",TokenType.LET},
     };
     
     public Lexer(string input)
@@ -25,31 +25,31 @@ public partial class Lexer
         switch (m_Ch)
         {
             case '=':
-                tok = new Token(Token.ASSIGN, m_Ch.ToString());
+                tok = new Token(TokenType.ASSIGN, m_Ch.ToString());
                 break;
             case '+':
-                tok = new Token(Token.PLUS, m_Ch.ToString());
+                tok = new Token(TokenType.PLUS, m_Ch.ToString());
                 break;
             case ';':
-                tok = new Token(Token.SEMICOLON, m_Ch.ToString());
+                tok = new Token(TokenType.SEMICOLON, m_Ch.ToString());
                 break;
             case ',':
-                tok = new Token(Token.COMMA, m_Ch.ToString());
+                tok = new Token(TokenType.COMMA, m_Ch.ToString());
                 break;
             case '(':
-                tok = new Token(Token.LPAREN, m_Ch.ToString());
+                tok = new Token(TokenType.LPAREN, m_Ch.ToString());
                 break;
             case ')':
-                tok = new Token(Token.RPAREN, m_Ch.ToString());
+                tok = new Token(TokenType.RPAREN, m_Ch.ToString());
                 break;
             case '{':
-                tok = new Token(Token.LBRACE, m_Ch.ToString());
+                tok = new Token(TokenType.LBRACE, m_Ch.ToString());
                 break;
             case '}':
-                tok = new Token(Token.RBRACE, m_Ch.ToString());
+                tok = new Token(TokenType.RBRACE, m_Ch.ToString());
                 break;
             case Char.MinValue:
-                tok = new Token(Token.EOF, "");
+                tok = new Token(TokenType.EOF, "");
                 break;
             default:
                 if (IsLetter(m_Ch))
@@ -60,11 +60,11 @@ public partial class Lexer
                 else if ( IsDigit(m_Ch))
                 {
                     var literal = ReadNumber();
-                    return new Token(Token.INT, literal);
+                    return new Token(TokenType.INT, literal);
                 }
                 else
                 {
-                    tok = new Token(Token.ILLEGAL, m_Ch.ToString());
+                    tok = new Token(TokenType.ILLEGAL, m_Ch.ToString());
                 }
                 break;
         }

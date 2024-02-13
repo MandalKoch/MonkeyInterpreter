@@ -7,14 +7,14 @@ public class LexerCase1 : ILexerTestCases
     public Token[] AssertArray =>
         new[] 
         {
-            new Token(Token.ASSIGN, "="),
-            new Token(Token.PLUS, "+"),
-            new Token(Token.LPAREN, "("),
-            new Token(Token.RPAREN, ")"),
-            new Token(Token.LBRACE, "{"),
-            new Token(Token.RBRACE, "}"),
-            new Token(Token.COMMA, ","),
-            new Token(Token.SEMICOLON, ";"),
-            new Token(Token.EOF, ""),
+            new Token(TokenType.ASSIGN, "="),
+            new Token(TokenType.PLUS, "+"),
+            new Token(TokenType.LPAREN, "("),
+            new Token(TokenType.RPAREN, ")"),
+            new Token(TokenType.LBRACE, "{"),
+            new Token(TokenType.RBRACE, "}"),
+            new Token(TokenType.COMMA, ","),
+            new Token(TokenType.SEMICOLON, ";"),
+            new Token(TokenType.EOF, ""),
         };
 }
