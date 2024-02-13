@@ -4,6 +4,7 @@ public partial class Lexer
 {
     public Token NextToken()
     {
+        SkipWhiteSpace();
         Token tok;
         switch (m_Ch)
         {
@@ -32,10 +33,23 @@ public partial class Lexer
                 tok = new Token(Token.RBRACE, m_Ch.ToString());
                 break;
             case Char.MinValue:
-                tok = new Token(Token.EOF, m_Ch.ToString());
+                tok = new Token(Token.EOF, "");
                 break;
             default:
-                tok = new Token(Token.ILLEGAL, "");
+                if (IsLetter(m_Ch))
+                {
+                    var literal = ReadIdentifier(); 
+                    return new Token(LookupIdent(literal), literal);
+                }
+                else if ( IsDigit(m_Ch))
+                {
+                    var literal = ReadNumber();
+                    return new Token(Token.INT, literal);
+                }
+                else
+                {
+                    tok = new Token(Token.ILLEGAL, m_Ch.ToString());
+                }
                 break;
         }
         ReadChar();

@@ -29,7 +29,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Lexer\MonkeyTestLexer.monkey">
+      <None Update="Lexer\TestCases\MonkeyTestLexerCase2.monkey">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Lexer\TestCases\MonkeyTestLexerCase1.monkey">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
