@@ -2,57 +2,79 @@
 
 public partial class Lexer
 {
-    public Token NextToken()
+   
+    private void ReadChar()
     {
-        SkipWhiteSpace();
-        Token tok;
+        if (m_ReadPosition >= m_Input.Length)
+        {
+            m_Ch = char.MinValue;
+        }
+        else
+        {
+            m_Ch = m_Input[m_ReadPosition];
+        }
+        m_Position = m_ReadPosition;
+        m_ReadPosition++;
+    }
+
+    private string ReadIdentifier()
+    {
+        var pos = m_Position;
+        while (IsLetter(m_Ch))
+        {
+            ReadChar();
+        }
+        return m_Input.Substring(pos, m_Position - pos);
+    }
+
+    private string LookupIdent(string ident)
+    {
+        if (m_KeywordsLookUp.TryGetValue(ident,out var tokenType))
+        {
+            return tokenType;
+        }
+        return Token.IDENT;
+    }
+    
+    private static bool IsLetter(char ch)
+    {
+        return ch is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or '_';
+    }
+
+    private void SkipWhiteSpace()
+    {
+        while (IsWhiteSpace())
+        {
+            ReadChar(); 
+        }
+    }
+
+    private bool IsWhiteSpace()
+    {
         switch (m_Ch)
         {
-            case '=':
-                tok = new Token(Token.ASSIGN, m_Ch.ToString());
-                break;
-            case '+':
-                tok = new Token(Token.PLUS, m_Ch.ToString());
-                break;
-            case ';':
-                tok = new Token(Token.SEMICOLON, m_Ch.ToString());
-                break;
-            case ',':
-                tok = new Token(Token.COMMA, m_Ch.ToString());
-                break;
-            case '(':
-                tok = new Token(Token.LPAREN, m_Ch.ToString());
-                break;
-            case ')':
-                tok = new Token(Token.RPAREN, m_Ch.ToString());
-                break;
-            case '{':
-                tok = new Token(Token.LBRACE, m_Ch.ToString());
-                break;
-            case '}':
-                tok = new Token(Token.RBRACE, m_Ch.ToString());
-                break;
-            case Char.MinValue:
-                tok = new Token(Token.EOF, "");
-                break;
+            case ' ':
+            case '\t':
+            case '\n':
+            case '\r':
+                return true;
             default:
-                if (IsLetter(m_Ch))
-                {
-                    var literal = ReadIdentifier(); 
-                    return new Token(LookupIdent(literal), literal);
-                }
-                else if ( IsDigit(m_Ch))
-                {
-                    var literal = ReadNumber();
-                    return new Token(Token.INT, literal);
-                }
-                else
-                {
-                    tok = new Token(Token.ILLEGAL, m_Ch.ToString());
-                }
-                break;
+                return false;
         }
-        ReadChar();
-        return tok;
+    }
+
+    private static bool IsDigit(char ch)
+    {
+        return ch is >= '0' and <= '9';
+    }
+
+    private string ReadNumber()
+    {
+        var pos = m_Position;
+        while (IsDigit(m_Ch))
+        {
+            ReadChar();
+        }
+        return m_Input.Substring(pos, m_Position - pos);
     }
 }

@@ -11,7 +11,14 @@ public record class Token(string TokenType,string Literal)
 
     // Operators
     public const string ASSIGN = "ASSIGN";
-    public const string PLUS = "PLUS ";
+    public const string PLUS = "PLUS";
+    public const string MINUS = "-";
+    public const string BANG = "!";
+    public const string ASTERISK = "*";
+    public const string SLASH = "/";
+
+    public const string LT = "<";
+    public const string GT = ">";
 
     // Delimiters
     public const string COMMA = "COMMA";
