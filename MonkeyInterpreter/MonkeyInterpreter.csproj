@@ -13,9 +13,4 @@
       </Content>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Lexer\" />
-      <Folder Include="Tokens\" />
-    </ItemGroup>
-
 </Project>
