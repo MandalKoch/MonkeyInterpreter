@@ -1,8 +1,8 @@
 # Monkey Interpreter in C# - Learning by Doing
-https://interpreterbook.com/
+
 ## Project Overview:
 
-Welcome to the Monkey Interpreter, a C# implementation inspired by the fantastic book "Writing an Interpreter in Go" by Thorsten Ball. This project empowers you to delve into the fascinating world of interpreter development using a familiar and widely adopted language.
+Welcome to the Monkey Interpreter, a C# implementation inspired by the fantastic book "[Writing an Interpreter in Go](https://interpreterbook.com/)" by Thorsten Ball. This project empowers you to delve into the fascinating world of interpreter development using a familiar and widely adopted language.
 
 ## Key Features:
 
