@@ -15,7 +15,7 @@ public static class Repl
             var line = await reader.ReadLineAsync(cancellationToken).ConfigureAwait(true);
             if (string.IsNullOrEmpty(line))
             {
-                return;
+                continue;
             }
             await writer.WriteLineAsync($"{c_PROMPT} {line}");
             Lexer lexer = new(line);

@@ -8,14 +8,27 @@ Console.CancelKeyPress += (s,e) => {
 };
 Console.WriteLine($"Hello Mister {userName}! This is the Monkey programming language!");
 
-var file = "MonkeyTest.monkey";
-
 await using var writer = Console.Out;
-await using var fileReader = File.OpenRead(file);
+using var fileReader = GetFileStream();
 while (!tokenSource.IsCancellationRequested)
 {
-    
-    await Repl.StartAsync(writer,new StreamReader(fileReader),tokenSource.Token);
+    await Repl.StartAsync(writer,fileReader,tokenSource.Token);
 }
 
 Console.WriteLine("Exited gracefully");
+
+
+static TextReader GetFileStream()
+{
+    var file = "MonkeyTest.monkey";
+    Console.WriteLine($"Reading from file: {file}.");
+    var fileReader = new FileStream(file,FileMode.Open,FileAccess.Read,FileShare.ReadWrite);
+    return new StreamReader(fileReader);
+}
+
+
+static TextReader GetConsoleStream()
+{
+    Console.WriteLine("Accepting console input.");
+    return Console.In;
+}
