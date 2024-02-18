@@ -1,8 +1,8 @@
-﻿namespace MonkeyInterpreter.Lexer.TestCases;
+﻿namespace MonkeyInterpreter.LexerImpl.TestCases;
 
-public class LexerCase4 : ILexerTestCases
+public class LexerCase2 : ILexerTestCases
 {
-    public string FileName => "MonkeyTestLexerCase4.monkey";
+    public string FileName => "MonkeyTestLexerCase2.monkey";
 
     public Token[] AssertArray =>
         new[] 
@@ -29,7 +29,7 @@ public class LexerCase4 : ILexerTestCases
             new Token(TokenType.IDENT,"y"),
             new Token(TokenType.RPAREN,")"),
             new Token(TokenType.LBRACE,"{"),
-            
+                       
             new Token(TokenType.IDENT,"x"),
             new Token(TokenType.PLUS,"+"),
             new Token(TokenType.IDENT,"y"),
@@ -49,37 +49,6 @@ public class LexerCase4 : ILexerTestCases
             new Token(TokenType.RPAREN,")"),
             new Token(TokenType.SEMICOLON,";"),
             
-            new Token(TokenType.BANG, "!"),
-            new Token(TokenType.MINUS, "-"),
-            new Token(TokenType.SLASH, "/"),
-            new Token(TokenType.ASTERISK, "*"),
-            new Token(TokenType.INT, "5"),
-            new Token(TokenType.SEMICOLON, ";"),
-            new Token(TokenType.INT, "5"),
-            new Token(TokenType.LT, "<"),
-            new Token(TokenType.INT, "10"),
-            new Token(TokenType.GT, ">"),
-            new Token(TokenType.INT, "5"),
-            new Token(TokenType.SEMICOLON, ";"),
-
-            new Token(TokenType.IF, "if"),
-            new Token(TokenType.LPAREN, "("),
-            new Token(TokenType.INT, "5"),
-            new Token(TokenType.LT, "<"),
-            new Token(TokenType.INT, "10"),
-            new Token(TokenType.RPAREN, ")"),
-            new Token(TokenType.LBRACE, "{"),
-            new Token(TokenType.RETURN, "return"),
-            new Token(TokenType.TRUE, "true"),
-            new Token(TokenType.SEMICOLON, ";"),
-            new Token(TokenType.RBRACE, "}"),
-            new Token(TokenType.ELSE, "else"),
-            new Token(TokenType.LBRACE, "{"),
-            new Token(TokenType.RETURN, "return"),
-            new Token(TokenType.FALSE, "false"),
-            new Token(TokenType.SEMICOLON, ";"),
-            new Token(TokenType.RBRACE, "}"),
-            
-            new Token(TokenType.EOF,""),
+            new Token(TokenType.EOF,"")
         };
 }

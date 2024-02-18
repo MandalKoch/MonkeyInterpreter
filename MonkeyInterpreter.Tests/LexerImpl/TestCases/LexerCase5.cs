@@ -1,4 +1,4 @@
-﻿namespace MonkeyInterpreter.Lexer.TestCases;
+﻿namespace MonkeyInterpreter.LexerImpl.TestCases;
 
 public class LexerCase5 : ILexerTestCases
 {

@@ -1,4 +1,4 @@
-﻿namespace MonkeyInterpreter.Lexer;
+﻿namespace MonkeyInterpreter.LexerImpl;
 
 public partial class Lexer
 {
@@ -9,6 +9,11 @@ public partial class Lexer
     
     public Lexer(string input)
     {
+        if (string.IsNullOrEmpty(input))
+        {
+            m_Input = string.Empty;
+            return;
+        }
         m_Input = input;
         ReadChar();
     }

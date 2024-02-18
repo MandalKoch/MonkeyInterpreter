@@ -1,10 +1,8 @@
-﻿using FluentAssertions;
-using MonkeyInterpreter.Lexer;
-using MonkeyInterpreter.Lexer.TestCases;
+﻿using MonkeyInterpreter.LexerImpl.TestCases;
 
-namespace MonkeyInterpreter.Lexer;
+namespace MonkeyInterpreter.LexerImpl;
 
-public class LexerTests
+public class LexerImplTests
 {
     [Theory]
     [ClassData(typeof(LexerTestCases))]

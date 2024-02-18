@@ -10,13 +10,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MonkeyInterpreter\MonkeyInterpreter.csproj" />
+        <ProjectReference Include="..\MonkeyInterpreter\MonkeyInterpreter.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="MonkeyTest.monkey">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

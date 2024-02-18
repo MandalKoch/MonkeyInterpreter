@@ -1,8 +1,8 @@
-﻿namespace MonkeyInterpreter.Lexer.TestCases;
+﻿namespace MonkeyInterpreter.LexerImpl.TestCases;
 
-public class LexerCase3 : ILexerTestCases
+public class LexerCase4 : ILexerTestCases
 {
-    public string FileName => "MonkeyTestLexerCase3.monkey";
+    public string FileName => "MonkeyTestLexerCase4.monkey";
 
     public Token[] AssertArray =>
         new[] 
@@ -61,6 +61,24 @@ public class LexerCase3 : ILexerTestCases
             new Token(TokenType.GT, ">"),
             new Token(TokenType.INT, "5"),
             new Token(TokenType.SEMICOLON, ";"),
+
+            new Token(TokenType.IF, "if"),
+            new Token(TokenType.LPAREN, "("),
+            new Token(TokenType.INT, "5"),
+            new Token(TokenType.LT, "<"),
+            new Token(TokenType.INT, "10"),
+            new Token(TokenType.RPAREN, ")"),
+            new Token(TokenType.LBRACE, "{"),
+            new Token(TokenType.RETURN, "return"),
+            new Token(TokenType.TRUE, "true"),
+            new Token(TokenType.SEMICOLON, ";"),
+            new Token(TokenType.RBRACE, "}"),
+            new Token(TokenType.ELSE, "else"),
+            new Token(TokenType.LBRACE, "{"),
+            new Token(TokenType.RETURN, "return"),
+            new Token(TokenType.FALSE, "false"),
+            new Token(TokenType.SEMICOLON, ";"),
+            new Token(TokenType.RBRACE, "}"),
             
             new Token(TokenType.EOF,""),
         };

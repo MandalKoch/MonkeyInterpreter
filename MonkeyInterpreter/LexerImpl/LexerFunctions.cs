@@ -1,4 +1,4 @@
-﻿namespace MonkeyInterpreter.Lexer;
+﻿namespace MonkeyInterpreter.LexerImpl;
 
 public partial class Lexer
 {

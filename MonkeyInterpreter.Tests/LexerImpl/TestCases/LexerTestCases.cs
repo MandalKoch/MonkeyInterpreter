@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace MonkeyInterpreter.Lexer.TestCases;
+namespace MonkeyInterpreter.LexerImpl.TestCases;
 
 public class LexerTestCases : IEnumerable<object[]>
 {
@@ -22,7 +22,7 @@ public class LexerTestCases : IEnumerable<object[]>
     {
         foreach (var testcase in m_TestCases)
         {
-            yield return [Path.Combine("Lexer","TestCases",testcase.FileName), testcase.AssertArray];
+            yield return [Path.Combine("LexerImpl","TestCases",testcase.FileName), testcase.AssertArray];
         }
     }
 
