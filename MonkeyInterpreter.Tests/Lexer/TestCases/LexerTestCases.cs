@@ -13,6 +13,8 @@ public class LexerTestCases : IEnumerable<object[]>
             new LexerCase1(),
             new LexerCase2(),
             new LexerCase3(),
+            new LexerCase4(),
+            new LexerCase5(),
         };
     }
     

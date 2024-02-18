@@ -41,6 +41,9 @@
       <None Update="Lexer\TestCases\MonkeyTestLexerCase4.monkey">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Lexer\TestCases\MonkeyTestLexerCase5.monkey">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

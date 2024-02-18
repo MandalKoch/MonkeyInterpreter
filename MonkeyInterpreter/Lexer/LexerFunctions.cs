@@ -2,6 +2,17 @@
 
 public partial class Lexer
 {
+    private readonly Dictionary<string, string> m_KeywordsLookUp = new()
+    {
+        {"fn",TokenType.FUNCTION},
+        {"let",TokenType.LET},
+        {"return",TokenType.RETURN},
+        {"if",TokenType.IF},
+        {"else",TokenType.ELSE},
+        {"true",TokenType.TRUE},
+        {"false",TokenType.FALSE},
+    };
+    
     private void ReadChar()
     {
         if (m_ReadPosition >= m_Input.Length)
@@ -75,5 +86,15 @@ public partial class Lexer
             ReadChar();
         }
         return m_Input.Substring(pos, m_Position - pos);
+    }
+
+    private char PeekChar()
+    {
+        if (m_ReadPosition >= m_Input.Length)
+        {
+            return Char.MinValue;
+        }
+
+        return m_Input[m_ReadPosition];
     }
 }

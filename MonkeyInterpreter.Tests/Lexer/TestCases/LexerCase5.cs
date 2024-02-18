@@ -1,8 +1,8 @@
 ﻿namespace MonkeyInterpreter.Lexer.TestCases;
 
-public class LexerCase4 : ILexerTestCases
+public class LexerCase5 : ILexerTestCases
 {
-    public string FileName => "MonkeyTestLexerCase4.monkey";
+    public string FileName => "MonkeyTestLexerCase5.monkey";
 
     public Token[] AssertArray =>
         new[] 
@@ -79,7 +79,15 @@ public class LexerCase4 : ILexerTestCases
             new Token(TokenType.FALSE, "false"),
             new Token(TokenType.SEMICOLON, ";"),
             new Token(TokenType.RBRACE, "}"),
+            new Token(TokenType.INT, "10"),
+            new Token(TokenType.EQ, "=="),
+            new Token(TokenType.INT, "10"),
+            new Token(TokenType.SEMICOLON, ";"),
+            new Token(TokenType.INT, "10"),
+            new Token(TokenType.NOT_EQ, "!="),
+            new Token(TokenType.INT, "9"),
+            new Token(TokenType.SEMICOLON, ";"),
             
-            new Token(TokenType.EOF,""),
+            new Token(TokenType.EOF,"")
         };
 }

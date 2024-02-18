@@ -6,12 +6,6 @@ public partial class Lexer
     private int m_Position;
     private int m_ReadPosition;
     private char m_Ch;
-
-    private readonly Dictionary<string, string> m_KeywordsLookUp = new()
-    {
-        {"fn",TokenType.FUNCTION},
-        {"let",TokenType.LET},
-    };
     
     public Lexer(string input)
     {
@@ -25,10 +19,49 @@ public partial class Lexer
         switch (m_Ch)
         {
             case '=':
-                tok = new Token(TokenType.ASSIGN, m_Ch.ToString());
+                if (PeekChar() == '=')
+                {
+                    var ch = m_Ch;
+                    ReadChar();
+                    var literal = $"{ch}{m_Ch}";
+                    tok = new Token(TokenType.EQ, literal);
+                }
+                else
+                {
+                    tok = new Token(TokenType.ASSIGN, m_Ch.ToString());
+                }
                 break;
             case '+':
                 tok = new Token(TokenType.PLUS, m_Ch.ToString());
+                break;
+            case '-':
+                tok = new Token(TokenType.MINUS, m_Ch.ToString());
+                break;
+            case '!':
+                
+                if (PeekChar() == '=')
+                {
+                    var ch = m_Ch;
+                    ReadChar();
+                    var literal = $"{ch}{m_Ch}";
+                    tok = new Token(TokenType.NOT_EQ, literal);
+                }
+                else
+                {
+                    tok = new Token(TokenType.BANG, m_Ch.ToString());
+                }
+                break;
+            case '/':
+                tok = new Token(TokenType.SLASH, m_Ch.ToString());
+                break;
+            case '*':
+                tok = new Token(TokenType.ASTERISK, m_Ch.ToString());
+                break;
+            case '<':
+                tok = new Token(TokenType.LT, m_Ch.ToString());
+                break;
+            case '>':
+                tok = new Token(TokenType.GT, m_Ch.ToString());
                 break;
             case ';':
                 tok = new Token(TokenType.SEMICOLON, m_Ch.ToString());
