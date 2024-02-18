@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonkeyInterpreter", "Monkey
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonkeyInterpreter.Tests", "MonkeyInterpreter.Tests\MonkeyInterpreter.Tests.csproj", "{69BD5D83-B351-40BE-B241-B393A5B7EE81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonkeyInterpreter.Main", "MonkeyInterpreter.Main\MonkeyInterpreter.Main.csproj", "{D8C076BF-FDF8-49E0-B7E4-A10C795D2D27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{69BD5D83-B351-40BE-B241-B393A5B7EE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69BD5D83-B351-40BE-B241-B393A5B7EE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69BD5D83-B351-40BE-B241-B393A5B7EE81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8C076BF-FDF8-49E0-B7E4-A10C795D2D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C076BF-FDF8-49E0-B7E4-A10C795D2D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C076BF-FDF8-49E0-B7E4-A10C795D2D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C076BF-FDF8-49E0-B7E4-A10C795D2D27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
